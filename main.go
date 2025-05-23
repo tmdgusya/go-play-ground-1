@@ -3,9 +3,13 @@ package main
 import "fmt"
 
 func main() {
-	s := "Hello, Golang"
-	for _, v := range s {
-		// v is rune (rune is alias for int32)
-		fmt.Printf("Unicode code point : %U - character: %c - binary %b hex %x Decimal %d\n", v, v, v, v, v)
-	}
+	var roomNumber, floorNumber int
+	fmt.Println(roomNumber, floorNumber)
+
+	// short variable declaration
+	_roomNumber, _floatNumber := 10, 2.5
+	fmt.Println(_roomNumber, _floatNumber)
+
+	var password string
+	fmt.Println(password)
 }
