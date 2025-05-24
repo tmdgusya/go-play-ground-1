@@ -18,4 +18,8 @@ func main() {
 	for i := 0; i < len(s); i++ {
 		fmt.Println(s[i])
 	}
+
+	for _, v := range days {
+		fmt.Println(v)
+	}
 }
