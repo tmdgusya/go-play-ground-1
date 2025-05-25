@@ -32,8 +32,8 @@ func main() {
 	// 만약 컴퓨터 입장에서 64비트 시스템이라면
 	// Student 구조체는 16 + 8 + 8 + 8 = 40바이트가 필요하다.
 	// 만약 복사가 일어난다면 컴퓨터 입장에서는 메모리 복사가 일어나게 된다. (즉, 40바이트 복사)
-	fmt.Printf("Student : %+v\n", student)
-	fmt.Printf("Size of Student: %d bytes\n", unsafe.Sizeof(student))
+	fmt.Printf("Student : %+v\n", student) (// {Name:Roach Class:1 No:1 Score:99.5})
+	fmt.Printf("Size of Student: %d bytes\n", unsafe.Sizeof(student)) // 40 bytes (output)
 
 	fmt.Printf("Student : %+v\n", student)
 	fmt.Printf("Size of Student: %d bytes\n", unsafe.Sizeof(student))
