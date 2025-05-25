@@ -1,22 +1,25 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"unsafe"
+)
 
 type Student struct {
-	Name  string
-	Class int
-	No    int
-	Score float64
+	Name  string  // 16byte
+	Class int     // 8byte
+	No    int     // 8byte
+	Score float64 // 8byte
 }
 
 type User struct {
-	Name string
-	Age  int
+	Name string // 16byte
+	Age  int    // 8byte
 }
 
 type VIPUser struct {
-	User  // embedded struct
-	Level int
+	User      // embedded struct
+	Level int // 8byte
 }
 
 func main() {
@@ -26,8 +29,14 @@ func main() {
 		No:    1,
 		Score: 99.5,
 	}
+	// 만약 컴퓨터 입장에서 64비트 시스템이라면
+	// Student 구조체는 16 + 8 + 8 + 8 = 40바이트가 필요하다.
+	// 만약 복사가 일어난다면 컴퓨터 입장에서는 메모리 복사가 일어나게 된다. (즉, 40바이트 복사)
+	fmt.Printf("Student : %+v\n", student)
+	fmt.Printf("Size of Student: %d bytes\n", unsafe.Sizeof(student))
 
 	fmt.Printf("Student : %+v\n", student)
+	fmt.Printf("Size of Student: %d bytes\n", unsafe.Sizeof(student))
 
 	var user User = User{
 		Name: "Roach",
